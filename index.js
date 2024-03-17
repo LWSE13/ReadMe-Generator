@@ -49,13 +49,14 @@ function writeToFile(fileName, data) {
           console.error(err);
           return;
         }
-        console.log(`Successfully wrote to  + ${fileName}`);
+        console.log(`Successfully wrote to ${fileName}`);
       });
 }
 
 // TODO: Create a function to initialize app
 const init  = () => {
     inquirer.prompt(questions).then((answers) => {
+        const tableOfContents = questions.map(question => `- [${question.name}](#${question.name})`).join('\n');
         const readmeContent = 
         `
         # ${answers.title}
@@ -64,7 +65,7 @@ const init  = () => {
          ${answers.description}
 
         ## Table of Contents
-
+        ${tableOfContents}
         ## Installation
         ${answers.installation}
 
@@ -73,7 +74,7 @@ const init  = () => {
 
         ## Credits
         ${answers.credits}
-        
+
         ## License
 
         ## Contributing
