@@ -12,7 +12,12 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: 'Please provide a description of your project.'
+        message: `Please provide a description of your project, some things to consider are:
+        - why you created the project,
+        - what your motivations were,
+        - what problem the project solves,
+        - what you learnt,
+        - any plans for future developments.`
     },
     {
         type: 'input',
@@ -38,7 +43,15 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        console.log(`Successfully wrote to  + ${fileName}`);
+      });
+}
 
 // TODO: Create a function to initialize app
 const init  = () => {
@@ -46,19 +59,34 @@ const init  = () => {
         const readmeContent = 
         `
         # ${answers.title}
-        
+
         ## Description
+         ${answers.description}
+
+        ## Table of Contents
 
         ## Installation
+        ${answers.installation}
 
         ## Usage
+        ${answers.usage}
 
         ## Credits
-
+        ${answers.credits}
+        
         ## License
+
+        ## Contributing
+
+        ## Tests
+
+        ## Questions
         `
+        writeToFile('README.md', readmeContent);
     })
+    
 }
 
 // Function call to initialize app
 init();
+
