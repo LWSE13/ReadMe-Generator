@@ -58,31 +58,33 @@ const init  = () => {
     inquirer.prompt(questions).then((answers) => {
         const tableOfContents = questions.map(question => `- [${question.name}](#${question.name})`).join('\n');
         const readmeContent = 
-        `
-        # ${answers.title}
+`
+# ${answers.title}
 
-        ## Description
-         ${answers.description}
+## Description
+${answers.description}
 
-        ## Table of Contents
-        ${tableOfContents}
-        ## Installation
-        ${answers.installation}
+## Table of Contents
 
-        ## Usage
-        ${answers.usage}
+${tableOfContents}
 
-        ## Credits
-        ${answers.credits}
+## Installation
+${answers.installation}
 
-        ## License
+## Usage
+${answers.usage}
 
-        ## Contributing
+## Credits
+${answers.credits}
 
-        ## Tests
+## License
 
-        ## Questions
-        `
+## Contributing
+
+## Tests
+
+## Questions
+`
         writeToFile('README.md', readmeContent);
     })
     
