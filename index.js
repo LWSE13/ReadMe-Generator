@@ -56,7 +56,12 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 const init  = () => {
     inquirer.prompt(questions).then((answers) => {
-        const tableOfContents = questions.map(question => `- [${question.name}](#${question.name})`).join('\n');
+
+        const tableOfContents = questions.map(question => {
+            const name = question.name.charAt(0).toUpperCase() + question.name.slice(1);
+            return `- [${name}](#${question.name})`;
+          }).join('\n');
+          
         const readmeContent = 
 `
 # ${answers.title}
