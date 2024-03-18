@@ -39,6 +39,21 @@ const questions = [
         name: 'license',
         message: 'Please choose a license for your project.',
         choices: ['MIT', 'Apache 2.0', 'GPL 3.0', 'BSD 3', 'n/a']
+    },
+    {
+        type: 'input',
+        name: 'contributing',
+        message: 'Please provide guidelines for contributing to your project. (if none please type n/a)'
+    },
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'Please provide tests for your project.'
+    },
+    {
+        type: 'input',
+        name: 'questions',
+        message: 'Please provide your github username for any questions about your project.'
     }
 ];
 
@@ -117,11 +132,15 @@ ${collaboratorText}
 
 ## License
 ${licenseSection}
+
 ## Contributing
+${answers.contributing}
 
 ## Tests
+${answers.tests}
 
 ## Questions
+github.com/${answers.questions}
 
 `
         writeToFile('README.md', readmeContent);
