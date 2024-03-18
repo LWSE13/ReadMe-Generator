@@ -17,10 +17,11 @@ I created this project to get some practice on a few things, those being node.js
 
 ## Installation
 This is a command line application, therefore to access this application you would have to clone this repo and either open it in gitbash or vs code's terminal as shown below...
+![repo-clone](assets/images/git-clone.png)
 
 ## Usage
 Once you have got the repo open in your terminal, type "node index.js" to start. From there all you must do is answer the prompts provided and the generator will do all the work!
-
+![node-example](assets/images/terminal.png)
 ## Credits
 n/a
 
