@@ -59,6 +59,13 @@ const licenseSectionText = (license) => {
     } 
 }
 
+const tableOfContentsLinkFunctionality = (questions) => {
+    return questions.map(question => {
+        const name = question.name.charAt(0).toUpperCase() + question.name.slice(1);
+        return `- [${name}](#${question.name})`;
+      }).join('\n');
+}
+
 // function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
@@ -73,12 +80,10 @@ function writeToFile(fileName, data) {
 // function to initialize app
 const init  = () => {
     inquirer.prompt(questions).then((answers) => {
+
         const selectedBadge = licenseBadges[answers.license]
         const licenseSection = licenseSectionText(answers.license)
-        const tableOfContents = questions.map(question => {
-            const name = question.name.charAt(0).toUpperCase() + question.name.slice(1);
-            return `- [${name}](#${question.name})`;
-          }).join('\n');
+        const tableOfContents = tableOfContentsLinkFunctionality(questions)
           
         const readmeContent = 
 `
