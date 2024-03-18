@@ -32,7 +32,7 @@ const questions = [
     {
         type: 'input',
         name: 'credits',
-        message: 'Please list the collaborators if any for your project.'
+        message: 'Please list the collaborators if any for your project. (please seperate collaborators with a comma or leave blank if none)'
     },
     {
         type: 'list',
@@ -48,6 +48,13 @@ const licenseBadges = {
     'GPL 3.0': '![Static Badge](https://img.shields.io/badge/GPL-3.0-Yellow)',
     'BSD 3': '![Static Badge](https://img.shields.io/badge/BSD-3-Purple)',
     'n/a': ''
+}
+
+const generateCollaboratorText = (collaborators) => {
+    const collaboratorList = collaborators.split(',').map(collaborator => collaborator.trim());
+    return collaboratorList.length > 0 ? 
+    collaboratorList.map(collaborator => `@${collaborator}`).join('\n') : 
+    'n/a';
 }
 
 const licenseSectionText = (license) => {
@@ -84,10 +91,13 @@ const init  = () => {
         const selectedBadge = licenseBadges[answers.license]
         const licenseSection = licenseSectionText(answers.license)
         const tableOfContents = tableOfContentsLinkFunctionality(questions)
-          
+        const collaboratorText = generateCollaboratorText(answers.credits)
+
         const readmeContent = 
 `
-# ${answers.title} ${selectedBadge}
+${selectedBadge}
+
+# ${answers.title} 
 
 ## Description
 ${answers.description}
@@ -103,7 +113,7 @@ ${answers.installation}
 ${answers.usage}
 
 ## Credits
-${answers.credits}
+${collaboratorText}
 
 ## License
 ${licenseSection}

@@ -1,8 +1,10 @@
 
-# testing 
+![Static Badge](https://img.shields.io/badge/GPL-3.0-Yellow)
+
+# y 
 
 ## Description
-testing
+y
 
 ## Table of Contents
 
@@ -14,16 +16,18 @@ testing
 - [License](#license)
 
 ## Installation
-testing
+y
 
 ## Usage
-testing
+y
 
 ## Credits
-testing
+@me
+@you
+@them
 
 ## License
-n/a
+This project is licensed under the license: GPL 3.0 see license.txt for more details.
 ## Contributing
 
 ## Tests
