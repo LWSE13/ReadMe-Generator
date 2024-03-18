@@ -66,10 +66,11 @@ const licenseBadges = {
 }
 
 const generateCollaboratorText = (collaborators) => {
+    if (collaborators === '') {
+        return 'n/a';
+    }
     const collaboratorList = collaborators.split(',').map(collaborator => collaborator.trim());
-    return collaboratorList.length > 0 ? 
-    collaboratorList.map(collaborator => `@${collaborator}`).join('\n') : 
-    'n/a';
+    return collaboratorList.map(collaborator => `@${collaborator}`).join('\n');
 }
 
 const licenseSectionText = (license) => {

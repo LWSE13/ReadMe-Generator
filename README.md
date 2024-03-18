@@ -1,6 +1,3 @@
-
-
-
 # ReadMe Generator 
 
 ## Description
@@ -25,7 +22,7 @@ This is a command line application, therefore to access this application you wou
 Once you have got the repo open in your terminal, type "node index.js" to start. From there all you must do is answer the prompts provided and the generator will do all the work!
 
 ## Credits
-@
+
 
 ## License
 n/a
