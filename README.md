@@ -1,31 +1,32 @@
 
-# t
+# lee ![Static Badge](https://img.shields.io/badge/MIT-License-red)
 
 ## Description
-t
+shush
 
 ## Table of Contents
 
-- [T](#title)
-- [D](#description)
-- [I](#installation)
-- [U](#usage)
-- [C](#credits)
-- [L](#license)
+- [Title](#title)
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
 
 ## Installation
-t
+shush
 
 ## Usage
-t
+shsushshus
 
 ## Credits
-t
+hsuhs (shush backwards)
 
 ## License
-
+This project is licensed under the license: MIT see license.txt for more details.
 ## Contributing
 
 ## Tests
 
 ## Questions
+

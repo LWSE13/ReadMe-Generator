@@ -38,11 +38,28 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'Please choose a license for your project.',
-        choices: ['MIT', 'Apache 2.0', 'GPL 3.0', 'BSD 3', 'None']
+        choices: ['MIT', 'Apache 2.0', 'GPL 3.0', 'BSD 3', 'n/a']
     }
 ];
 
-// TODO: Create a function to write README file
+const licenseBadges = {
+    'MIT': '![Static Badge](https://img.shields.io/badge/MIT-License-red)',
+    'Apache 2.0': '![Static Badge](https://img.shields.io/badge/apache-2.0-blue)',
+    'GPL 3.0': '![Static Badge](https://img.shields.io/badge/GPL-3.0-Yellow)',
+    'BSD 3': '![Static Badge](https://img.shields.io/badge/BSD-3-Purple)',
+    'n/a': ''
+}
+
+const licenseSectionText = (license) => {
+    switch (license) {
+        case 'n/a':
+            return 'n/a';
+        default:
+            return `This project is licensed under the license: ${license} see license.txt for more details.`
+    } 
+}
+
+// function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
         if (err) {
@@ -53,10 +70,11 @@ function writeToFile(fileName, data) {
       });
 }
 
-// TODO: Create a function to initialize app
+// function to initialize app
 const init  = () => {
     inquirer.prompt(questions).then((answers) => {
-
+        const selectedBadge = licenseBadges[answers.license]
+        const licenseSection = licenseSectionText(answers.license)
         const tableOfContents = questions.map(question => {
             const name = question.name.charAt(0).toUpperCase() + question.name.slice(1);
             return `- [${name}](#${question.name})`;
@@ -64,7 +82,7 @@ const init  = () => {
           
         const readmeContent = 
 `
-# ${answers.title}
+# ${answers.title} ${selectedBadge}
 
 ## Description
 ${answers.description}
@@ -83,12 +101,13 @@ ${answers.usage}
 ${answers.credits}
 
 ## License
-
+${licenseSection}
 ## Contributing
 
 ## Tests
 
 ## Questions
+
 `
         writeToFile('README.md', readmeContent);
     })
