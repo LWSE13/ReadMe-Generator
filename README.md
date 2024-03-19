@@ -35,5 +35,6 @@ n/a
 n/a
 
 ## Questions
-for any questions please visit: github.com/LWSE13
+for any questions you can reach me at: leewheeler123@gmail.com 
+or visit my github profile: github.com/LWSE13
 
