@@ -53,7 +53,7 @@ const questions = [
     {
         type: 'input',
         name: 'questions',
-        message: 'Please provide your github username for any questions about your project.'
+        message: 'Please provide your github username and email address seperated by a comma. (e.g. username, email)'
     }
 ];
 
@@ -109,6 +109,7 @@ const init  = () => {
         const tableOfContents = tableOfContentsLinkFunctionality(questions)
         const collaboratorText = generateCollaboratorText(answers.credits)
 
+        const [githubUsername, email] = answers.questions.split(',').map(item => item.trim());
         const readmeContent = 
 `
 ${selectedBadge}
@@ -141,7 +142,8 @@ ${answers.contributing}
 ${answers.tests}
 
 ## Questions
-github.com/${answers.questions}
+for any questions you can reach me at: ${email} 
+or visit my github profile: github.com/${githubUsername}
 
 `
         writeToFile('README.md', readmeContent);
